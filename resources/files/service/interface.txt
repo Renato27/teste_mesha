@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Services\{referencia_service}\{acao_service}\Contracts;
+
+use App\Models\{modelRepository};
+use App\Repositories\Contracts\{modelRepository}Repository;
+
+interface {service_name}
+{
+    /**
+     * Seta a model de {modelRepository}.
+     *
+     * @param {modelRepository}|null
+     * @return {service_name}
+     */
+    public function set{modelRepository}(?{modelRepository} ${modelRepository} = null): {service_name};
+
+    /**
+     * Seta os dados para {modelRepository}.
+     *
+     * @param array $dados
+     * @return {service_name};
+     */
+    public function setDados(array $dados): {service_name};
+
+    /**
+     * Seta o repositório de {modelRepository}Repository.
+     *
+     * @param {modelRepository}Repository ${modelRepository}Repository
+     * @return {service_name}
+     */
+    public function set{modelRepository}Repository({modelRepository}Repository ${modelRepository}Repository): {service_name};
+
+    /**
+     * Processa os dados
+     *
+     * @return {modelRepository}|null
+     */
+    public function handle(): ?{modelRepository};
+}

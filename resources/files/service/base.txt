@@ -1,0 +1,67 @@
+<?php
+
+namespace App\Services\{referencia_service}\{acao_service}\Base;
+
+use App\Services\{referencia_service}\{acao_service}\Contracts\{service_name};
+use App\Models\{modelRepository};
+use App\Repositories\Contracts\{modelRepository}Repository;
+
+abstract class {service_name}Base implements {service_name}
+{
+    /**
+     * Model de {modelRepository}.
+     *
+     * @var {modelRepository}|null
+     */
+    protected ?{modelRepository} ${modelRepository};
+
+    /**
+     * Array de dados.
+     *
+     * @var array
+     */
+    protected array $dados;
+
+    /**
+     * Repositório de {modelRepository}Repository.
+     *
+     * @var {modelRepository}
+     */
+    protected {modelRepository}Repository ${modelRepository}Repository;
+
+   /**
+     * Seta a model de {modelRepository}.
+     *
+     * @param {modelRepository}|null
+     * @return {service_name}
+     */
+    public function set{modelRepository}(?{modelRepository} ${modelRepository} = null): {service_name}
+    {
+        $this->{modelRepository} = ${modelRepository};
+        return $this;
+    }
+
+    /**
+     * Seta os dados para {modelRepository}.
+     *
+     * @param array $dados
+     * @return {service_name};
+     */
+    public function setDados(array $dados): {service_name}
+    {
+        $this->dados = $dados;
+        return $this;
+    }
+
+    /**
+     * Seta o repositório de {modelRepository}Repository.
+     *
+     * @param {modelRepository}Repository ${modelRepository}Repository
+     * @return {service_name}
+     */
+    public function set{modelRepository}Repository({modelRepository}Repository ${modelRepository}Repository): {service_name}
+    {
+        $this->{modelRepository}Repository = ${modelRepository}Repository;
+        return $this;
+    }
+}

@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Services\{referencia_service}\{acao_service}\Abstracts;
+
+use App\Models\{modelRepository};
+use App\Services\{referencia_service}\{acao_service}\Base\{service_name}Base;
+
+abstract class {service_name}Abstract extends {service_name}Base
+{
+    /**
+     * Implementação do código.
+     *
+     * @return {modelRepository}|null
+     */
+    protected function {acao_service}() : ?{modelRepository}
+    {
+
+    }
+}
