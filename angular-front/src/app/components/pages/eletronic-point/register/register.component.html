@@ -1,0 +1,48 @@
+<div class="card">
+    <h3 class="card-header  text-center">
+        Formulário de Registro de Dados
+    </h3>
+    <div class="card-body">
+        <div class="col col-md-12" *ngIf="showMessageError">
+            <div *ngFor="let message of messages">
+                <alert-error [(show)]="showMessageError">{{message}}</alert-error>
+            </div>
+        </div>
+        <form [formGroup]="form" *ngIf="!formSubmited; else successSubmited">
+            <div class="row g-3">
+                <div class="form-group col-md-4">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" [ngClass]="{'is-invalid': form.get('name')?.invalid && (form.get('name')?.dirty || form.get('name')?.touched)}" id="nome" name="name" formControlName="name">
+                    <field-error [field]="form.get('name')"></field-error>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" [ngClass]="{'is-invalid': form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched)}" id="email" name="email" formControlName="email">
+                    <field-error [field]="form.get('email')"></field-error>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="cpf" class="form-label">CPF</label>
+                    <input type="text" class="form-control" [ngClass]="{'is-invalid': form.get('cpf')?.invalid && (form.get('cpf')?.dirty || form.get('cpf')?.touched)}" id="cpf" name="cpf" formControlName="cpf" mask="000.000.000-00">
+                    <field-error [field]="form.get('cpf')"></field-error>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="cell" class="form-label">Celular</label>
+                    <input type="text" class="form-control" id="cell" name="cell" formControlName="cell" mask="(00) 00000-0000">
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-outline-success" [disabled]="!form.valid" (click)="submit()">
+                      <i class="bi bi-check2-square"></i>
+                      Salvar
+                    </button>
+                </div>
+            </div>
+        </form>
+        <ng-template #successSubmited>
+            <div class="row g-3 align-items-center">
+                <div class="alert alert-success" role="alert" style="text-align: center;">
+                    Registro submetido com Sucesso!
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>

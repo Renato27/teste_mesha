@@ -1,0 +1,45 @@
+<div class="card">
+    <h3 class="card-header  text-center">
+        Dados de {{register?.name}}
+    </h3>
+    <div class="card-body">
+        <div class="col col-md-4 offset-4" *ngIf="showMessageError">
+            <alert-error [(show)]="showMessageError">Erro ao validar os dados. Tente novamente!</alert-error>
+        </div>
+        <div class="col col-md-4 offset-4" *ngIf="showMessageSuccess">
+            <alert-success [(show)]="showMessageSuccess">Validado com Sucesso</alert-success>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <a [routerLink]="['/registros']" class="btn btn-outline-info">
+                    <span><i class="bi bi-arrow-left-square"></i>Voltar</span>
+                </a>
+            </div>
+        </div>
+        <br/>
+        <div class="row g-3">
+            <div class="form-group col-md-4">
+                <label for="nome" class="form-label">Nome</label>
+                <input disabled type="text" class="form-control" id="nome" value="{{register?.name}}">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="email" class="form-label">Email</label>
+                <input disabled type="email" class="form-control" id="email" value="{{register?.email}}">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="cpf" class="form-label">CPF</label>
+                <input disabled type="text" class="form-control" id="cpf" value="{{register?.cpf}}">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="cell" class="form-label">Celular</label>
+                <input disabled type="text" class="form-control" id="cell" value="{{register?.cell}}">
+            </div>
+            <div class="d-grid gap-2">
+                <button *ngIf="register?.validated === 0; else disableButton" type="button" (click)="submit(register.id)" class="btn btn-outline-success float-right"><i class="bi bi-check2-square"></i>Validar</button>
+                <ng-template #disableButton>
+                    <button type="button" class="btn btn-success float-right" disabled><i class="bi bi-check2-square"></i>Validado</button>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
