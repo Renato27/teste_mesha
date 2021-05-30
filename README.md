@@ -1,6 +1,6 @@
 ## Instalação
 
-- Fazer o pull request da branch (develop)
+- Fazer o pull request da branch (master)
 - Rodar o comando (composer install) dentro da pasta do projeto, caso não tenha feito.
 - Criar a base de dados com o nome de "teste_mesha"
 - Rodar o comando (php artisan migrate --seed) para popular a base de dados.
