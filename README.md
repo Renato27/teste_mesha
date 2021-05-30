@@ -2,7 +2,8 @@
 
 - Fazer o pull request da branch (develop)
 - Rodar o comando (composer install) dentro da pasta do projeto, caso não tenha feito.
-- Rodar o comando (php artisan migrate --seed) para construir a base de dados.
+- Criar a base de dados com o nome de "teste_mesha"
+- Rodar o comando (php artisan migrate --seed) para popular a base de dados.
 - Instalar a biblioteca jwt-auth parao laravel (https://jwt-auth.readthedocs.io/en/develop/laravel-installation/)
 - Rodar o comando (composer dumpautoload)
 - Acessar a pasta "angular-front"
