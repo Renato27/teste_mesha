@@ -7,3 +7,9 @@ export interface EletronicPoint {
   cell?: string;
   validated?: number
 }
+export interface User {
+
+  id?: number;
+  name: string;
+  email: string;
+}

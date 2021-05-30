@@ -48,5 +48,4 @@ export class RecordsComponent implements OnInit {
     this.searchText = search;
     this.getRecords()
   }
-
 }

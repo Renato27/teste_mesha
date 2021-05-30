@@ -8,6 +8,14 @@
                 <alert-error [(show)]="showMessageError">{{message}}</alert-error>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-6">
+                <a [routerLink]="['/home']" class="btn btn-outline-info">
+                    <span><i class="bi bi-arrow-left-square"></i>Voltar</span>
+                </a>
+            </div>
+        </div>
+        <br/>
         <form [formGroup]="form" *ngIf="!formSubmited; else successSubmited">
             <div class="row g-3">
                 <div class="form-group col-md-4">

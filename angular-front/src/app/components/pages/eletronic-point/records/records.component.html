@@ -23,8 +23,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let record of records | paginate: {itemsPerPage: 5, currentPage: pagination.page, totalItems: pagination.totalItems}">
-                                <td>{{record.id}}</td>
+                            <tr *ngFor="let record of records | paginate: {itemsPerPage: 5, currentPage: pagination.page, totalItems: pagination.totalItems}; let i = index">
+                                <td>{{i + 1}}</td>
                                 <td>{{record.name}}</td>
                                 <td>{{record.cpf}}</td>
                                 <td>{{record.validated === 0 ? "Não Validado" : "Validado"}}</td>
