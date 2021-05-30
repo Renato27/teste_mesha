@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\EletronicPointController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -17,8 +18,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['api']], function () {
 
-    Route::resource('registers', EletronicPointController::class)->only('index', 'store', 'show');
-    Route::post('register/{eletronicPoint}/validation', [EletronicPointController::class, 'validation']);
+    Route::post('login', [AuthController::class, 'login']);
+
+    Route::middleware(['jwt.verify'])->group(function () {
+        Route::resource('eletronicPoints', EletronicPointController::class)->only('index', 'show');
+        Route::post('register/{eletronicPoint}/validation', [EletronicPointController::class, 'validation']);
+        Route::post('logout', [AuthController::class, 'logout']);
+    });
+
+    Route::resource('eletronicPoints', EletronicPointController::class)->only('store');
 
 });
 

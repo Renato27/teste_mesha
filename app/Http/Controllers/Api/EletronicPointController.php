@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EletronicPointRequest;
+use App\Http\Requests\EletronicPointSearchRequest;
 use App\Http\Resources\EletronicPointResource;
 use App\Models\EletronicPoint;
 use App\Services\ELetronicPoint\CreateELetronicPoint\Contracts\CreateELetronicPointService;
@@ -18,9 +19,11 @@ class EletronicPointController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(EletronicPointSearchRequest $request)
     {
-        $eletronicPoints = EletronicPoint::get();
+        $eletronicPoints = EletronicPoint::where($request->getSearchCallback())
+        ->orderBy('name')
+        ->paginate(5);
 
         return EletronicPointResource::collection($eletronicPoints);
     }
